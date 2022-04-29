@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        #form{
+            width: 20%;
+            margin: auto;
+            background-color: teal;
+            color: white;
+            padding: 20px;
+            margin-top: 70px;
+        }
+        input, button {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+        input {
+            font-size: 18px;
+        }
+        button {
+            background-color: rgb(68, 119, 119);
+            color: white;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+        
+    <h2>- Visitor</h2>
+    <input id="name"  type="text" placeholder="Full name">
+    <input id="email" type="text" placeholder="Email">
+    <input id="organization" type="text" placeholder="Organization"> 
+    <button id="signup">Sign Up</button>
+    <button>Return</button>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById('signup').addEventListener('click', signupFunc);
+
+    function signupFunc(){
+        let data = {
+            name : document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            organization: document.getElementById('organization').value
+        }
+
+        console.log(data);
+        localStorage.setItem('signUpData', JSON.stringify(data));
+    }
+</script>
