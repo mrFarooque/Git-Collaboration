@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        background-image: linear-gradient(to bottom right, #3695d9, #8c45ad);
+        font-family: "Poppins", sans-serif;
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 570px;
+        width: 350px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      h1 {
+        /* border: 1px solid blue; */
+        padding: 0px;
+        width: 100%;
+        text-align: center;
+        margin-top: -30px;
+        margin-bottom: 100px;
+        font-weight: 500;
+      }
+      #form {
+        /* border: 1px solid green; */
+        margin-top: 0px;
+        font-weight: 100;
+        width: 80%;
+      }
+      #Email,
+      #Password {
+        box-shadow: none;
+        border-bottom-width: 1px solid grey;
+        border-top-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        width: 100%;
+        font-size: 16px;
+        /* color: #adadad; */
+        background-color: white;
+      }
+      textarea:focus,
+      input:focus,
+      select:focus {
+        outline: none;
+      }
+      #email {
+        /* border: 1px solid teal; */
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      #password {
+        /* border: 1px solid palevioletred; */
+        margin-bottom: 40px;
+        width: 100%;
+      }
+      #submit {
+        margin: auto;
+        position: relative;
+        /* border: 1px solid orangered; */
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+      }
+      #submitButton {
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        color: white;
+        font-size: 18px;
+        background-image: linear-gradient(to bottom right, #3695d9, #8c45ad);
+        border: none;
+        cursor: pointer;
+      }
+
+      textarea {
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+      }
+
+      p,
+      a {
+        background-color: white;
+      }
+      p {
+        text-align: center;
+        font-size: 13px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+      }
+      #forgotPass {
+        margin-top: 50px;
+      }
+      a:link {
+        color: #5c9bc5;
+        text-decoration: none;
+      }
+      a:visited {
+        color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Login</h1>
+      <form id="form">
+        <div id="email">
+          <input type="email" placeholder="Email" id="Email" />
+        </div>
+        <div id="password">
+          <input type="password" placeholder="Password" id="Password" />
+        </div>
+        <div id="submit">
+          <input type="submit" value="Login" id="submitButton" />
+        </div>
+      </form>
+      <div id="forgotPasswordLink">
+        <p id="forgotPass">Forgot <a href="">Password</a>?</p>
+      </div>
+      <div id="signUpLink">
+        <p>Don't have an account? <a href="">Sign up</a></p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  document.querySelector("#form").addEventListener("submit", loginAction);
+
+  function loginAction() {
+    event.preventDefault();
+
+    var loginData = {
+      email: document.querySelector("#Email").value,
+      password: document.querySelector("#Password").value,
+    };
+
+    localStorage.setItem("loginData", JSON.stringify(loginData));
+    console.log("logged in");
+  }
+</script>
